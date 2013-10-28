@@ -11,28 +11,34 @@
  * License    GNU GPL v3 or later
  */
 
-jimport('joomla.plugin.plugin');
-jimport('joomla.html.parameter');
 
 class plgSystemItunesapp extends JPlugin {
 
 	function plgSystemItunesapp(&$subject, $params) {
 		parent::__construct($subject, $params);
 
+		$this->app = JFactory::getApplication();
 		$this->doc = JFactory::getDocument();
 	}
 
 	function onAfterRoute() {
 
-		$appId     = htmlspecialchars($this->params->get('appId'));
-		$appArg    = htmlspecialchars($this->params->get('appArg'));
-		$menuItems = htmlspecialchars($this->params->get('menuItems'));
+		if ($this->app->isAdmin()) {
+			return TRUE;
+		}
+
+		$activeItem = JSite::getMenu()->getActive()->id;
+		$appArg     = htmlspecialchars($this->params->get('appArg'));
+		$appId      = htmlspecialchars($this->params->get('appId'));
+		$menuItems  = $this->params->get('menuItems');
+
+		//die('<pre>' . print_r(JSite::getMenu()->getActive()->id, true) . '</pre>');
 
 		if (!is_array($menuItems)) {
 			$menuItems = str_split($menuItems, strlen($menuItems));
 		}
 
-		if (in_array($this->active->id, $menuItems)) {
+		if (in_array($activeItem, $menuItems)) {
 
 			$this->doc->setMetaData('apple-itunes-app', 'app-id=' . $appId . ', app-argument=' . $appArg . '');
 		}

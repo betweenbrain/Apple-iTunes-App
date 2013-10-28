@@ -11,14 +11,12 @@
 	<authorEmail></authorEmail>
 	<authorUrl>http://www.betweenbrain.com</authorUrl>
 	<version>0.1</version>
-	<description></description>
+	<description>hi</description>
 	<files>
 		<filename plugin="itunesapp">itunesapp.php</filename>
 		<folder>elements</folder>
 	</files>
-	<languages>
-		<language tag="en-GB">en-GB.plg_system_itunesapp.ini</language>
-	</languages>
+
 	<params addpath="/plugins/system/elements">
 		<param name="appId"
 		       type="text"
@@ -48,6 +46,12 @@
 				       default="http://www.guggenheim.org/new-york/visit/app"
 				       label="PLG_ITUNESAPP_APP_ARG_LABEL"
 				       description="PLG_ITUNESAPP_APP_ARG_DESC"/>
+				<param name="menuItems"
+				       type="menuitem"
+				       multiple="true"
+				       size="25"
+				       label="PLG_ITUNESAPP_APP_MENU_ITEMS_LABEL"
+				       description="PLG_ITUNESAPP_APP_MENU_ITEMS_DESC"/>
 			</fieldset>
 		</fields>
 	</config>
