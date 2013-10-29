@@ -2,7 +2,7 @@
 
 /**
  * File       itunesapp.php
- * Created    4/17/13 4:48 PM
+ * Created    10/28/13 4:48 PM
  * Author     Matt Thomas
  * Website    http://betweenbrain.com
  * Email      matt@betweenbrain.com
@@ -10,7 +10,6 @@
  * Copyright  Copyright (C) 2013 betweenbrain llc. All Rights Reserved.
  * License    GNU GPL v3 or later
  */
-
 
 class plgSystemItunesapp extends JPlugin {
 
@@ -31,8 +30,6 @@ class plgSystemItunesapp extends JPlugin {
 		$appArg     = htmlspecialchars($this->params->get('appArg'));
 		$appId      = htmlspecialchars($this->params->get('appId'));
 		$menuItems  = $this->params->get('menuItems');
-
-		//die('<pre>' . print_r(JSite::getMenu()->getActive()->id, true) . '</pre>');
 
 		if (!is_array($menuItems)) {
 			$menuItems = str_split($menuItems, strlen($menuItems));
